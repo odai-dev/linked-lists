@@ -114,7 +114,6 @@ export class LinkedList {
         let current = this._head;
         let i = 0;
         while(current) {
-            console.log(current)
             if(i == index-1){
                 const node = new Node(value);
                 node.nextNode = current.nextNode;
@@ -123,5 +122,23 @@ export class LinkedList {
             i++;
             current = current.nextNode;
         }
+    }
+
+    removeAt(index) {
+        
+        let current = this._head;
+        if(index == 0) {
+            this._head = current.nextNode;
+            return;
+        }
+        let i = 0;
+        while(current) {
+            if(i == index-1){
+                current.nextNode = current.nextNode.nextNode;
+            };
+            i++;
+            current = current.nextNode;
+        }
+
     }
 }
