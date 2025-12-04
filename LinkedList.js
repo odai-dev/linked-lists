@@ -39,6 +39,22 @@ class LinkedList {
         node.nextNode = this._head;
         this._head = node;
     }
+
+    pop() {
+        if(!this._head) return;
+        if(!this._head.nextNode) {
+            this._head = null;
+            this._tail = null;
+            return;
+        };
+        let current = this._head;
+        while(current.nextNode.nextNode) {
+            current = current.nextNode;
+        }
+        current.nextNode = null;
+        this._tail = current;
+    }
+
 }
 
 const list = new LinkedList();
@@ -46,4 +62,6 @@ console.log(list.head(), list.tail());
 list.append("cat");
 list.prepend("cow");
 list.append("dog");
+list.pop();
 console.log("Head: ",list.head(), "Tail: ",list.tail());
+
