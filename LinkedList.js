@@ -85,4 +85,13 @@ export class LinkedList {
         }
         return null;
     }
+    
+    contains(value) {
+        let current = this._head;
+        while(current) {
+            if(current.value == value) return true;
+            current = current.nextNode;
+        }
+        return false;
+    }
 }
