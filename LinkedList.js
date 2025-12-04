@@ -125,16 +125,26 @@ export class LinkedList {
     }
 
     removeAt(index) {
-        
+        if (!this._head) return;
+
         let current = this._head;
         if(index == 0) {
+            if (!this._head.nextNode) this._tail = null;
+
             this._head = current.nextNode;
             return;
         }
+
         let i = 0;
         while(current) {
             if(i == index-1){
+                if (current.nextNode === this._tail) {
+                    this._tail = current;
+                }
+
                 current.nextNode = current.nextNode.nextNode;
+                
+                return;
             };
             i++;
             current = current.nextNode;
