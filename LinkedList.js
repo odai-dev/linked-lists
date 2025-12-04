@@ -85,7 +85,7 @@ export class LinkedList {
         }
         return null;
     }
-    
+
     contains(value) {
         let current = this._head;
         while(current) {
@@ -93,5 +93,35 @@ export class LinkedList {
             current = current.nextNode;
         }
         return false;
+    }
+
+    find(value) {
+        let current = this._head;
+        let i = 0;
+        while(current) {
+            if(current.value == value) return i;
+            i++;
+            current = current.nextNode;
+        }
+        return null;
+    }
+
+    insertAt(value, index) {
+        if(index == 0) {
+            this.prepend(value);
+            return;
+        }
+        let current = this._head;
+        let i = 0;
+        while(current) {
+            console.log(current)
+            if(i == index-1){
+                const node = new Node(value);
+                node.nextNode = current.nextNode;
+                current.nextNode = node;
+            };
+            i++;
+            current = current.nextNode;
+        }
     }
 }

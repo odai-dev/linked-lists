@@ -7,6 +7,5 @@ list.prepend("cow");
 list.append("dog");
 console.log(list.toString());
 console.log(list.size());
-console.log(list.at(1));
-console.log(list.contains('cat'));
-console.log(list.contains('bird'));
+list.insertAt('bird', 0);
+console.log(list.toString());
