@@ -64,6 +64,16 @@ class LinkedList {
         }
         return listAsString;
     }
+
+    size() {
+        let current = this._head;
+        let count = 0;
+        while(current) {
+            count++;
+            current = current.nextNode;
+        }
+        return count;
+    }
 }
 
 const list = new LinkedList();
@@ -71,5 +81,5 @@ console.log(list.head(), list.tail());
 list.append("cat");
 list.prepend("cow");
 list.append("dog");
-list.pop();
 console.log(list.toString());
+console.log(list.size());
