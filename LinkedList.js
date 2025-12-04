@@ -74,6 +74,17 @@ class LinkedList {
         }
         return count;
     }
+
+    at(index) {
+        let current = this._head;
+        let i = 0;
+        while(current) {
+            if(i == index) return current;
+            i++;
+            current = current.nextNode;
+        }
+        return null;
+    }
 }
 
 const list = new LinkedList();
@@ -83,3 +94,4 @@ list.prepend("cow");
 list.append("dog");
 console.log(list.toString());
 console.log(list.size());
+console.log(list.at(1));
