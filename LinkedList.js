@@ -55,6 +55,15 @@ class LinkedList {
         this._tail = current;
     }
 
+    toString() {
+        let listAsString = '';
+        let current = this._head;
+        while(current){
+            listAsString += current.nextNode != null ? `(${current.value}) -> `: `(${current.value}) -> ${current.nextNode}`;
+            current = current.nextNode;
+        }
+        return listAsString;
+    }
 }
 
 const list = new LinkedList();
@@ -63,5 +72,4 @@ list.append("cat");
 list.prepend("cow");
 list.append("dog");
 list.pop();
-console.log("Head: ",list.head(), "Tail: ",list.tail());
-
+console.log(list.toString());
